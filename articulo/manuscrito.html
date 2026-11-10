@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuración Formal y Evaluación Estadístico-Experimental de Modelos Ocultos de Markov</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            color: #1a252f;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        .authors {
+            text-align: center;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+        }
+        .abstract {
+            background-color: #f1f5f9;
+            padding: 18px;
+            border-left: 4px solid #2563eb;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            font-size: 13.5px;
+            text-align: justify;
+        }
+        h2 {
+            font-size: 17px;
+            color: #1e3a8a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 9px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8fafc;
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .figure-box {
+            text-align: center;
+            margin: 25px 0;
+        }
+        .figure-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .figure-caption {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .badge-green { background-color: #10b981; }
+        .badge-amber { background-color: #f59e0b; }
+        .badge-red { background-color: #ef4444; }
+        .ref-list {
+            font-size: 12px;
+            color: #475569;
+            padding-left: 20px;
+        }
+        .ref-list li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Estructuración Formal y Evaluación Estadístico-Experimental de Modelos Ocultos de Markov ante Perturbaciones No Estacionarias: Análisis de Regímenes de Mercado Financiero</h1>
+    
+    <div class="authors">
+        <strong>Sebastian Garces Cadavid¹, Sofia Miranda Cubides¹, Oscar Rene Peñaloza Ardila¹, Andres Mauricio Quintero Rios¹, Dr. Julián Andrés Loaiza López²*</strong><br>
+        ¹Estudiantes de Ingeniería de Software y Datos, Curso de Simulación<br>
+        ²Docente Asesor, Departamento de Ingeniería de Software y Datos, Institución Universitaria Digital de Antioquia (IU Digital)<br>
+        <em>*Docente asesor / Autor de correspondencia — Noviembre de 2026</em>
+    </div>
+
+    <div class="abstract">
+        <strong>Resumen — </strong>El modelado estocástico mediante Modelos Ocultos de Markov (HMM) constituye un pilar fundamental en el análisis de sistemas con dinámica latente y observaciones ruidosas. En mercados financieros, perturbaciones exógenas como crisis económicas vulneran el supuesto estándar de homogeneidad temporal en las transiciones de estado. Este trabajo presenta un estudio estadístico-experimental estructurado bajo estándar editorial Q1 que evalúa formalmente el impacto de la no estacionariedad en el rendimiento del algoritmo de Viterbi. Mediante una topología de N=3 estados latentes (Mercado Alcista, Lateral, Bajista) y M=3 emisiones discretas de retorno (Positivo, Neutral, Negativo), se diseñó un experimento Monte Carlo de 500 corridas pareadas (T=50 períodos de trading) comparando tres escenarios: Nominal (A_nominal estacionaria), Crisis no modelada (A_crisis en ventana crítica t=15 a 25 con decodificador ciego) y Crisis modelada (A(t) adaptativa). Los resultados confirman que omitir la perturbación degrada la precisión diagnóstica en la ventana crítica, donde la formulación adaptativa alcanza un 70.42% frente al 67.64% del decodificador ciego (p &lt; 10⁻⁸), superando significativamente al clasificador heurístico determinista de ventana deslizante (52.30%, p &lt; 10⁻¹⁵).<br><br>
+        <strong>Palabras clave — </strong>Modelos Ocultos de Markov, algoritmo de Viterbi, regímenes financieros, no estacionariedad, simulación Monte Carlo.
+    </div>
+
+    <h2>1. Preguntas de Investigación y Objetivos</h2>
+    <ul>
+        <li><strong>P1:</strong> ¿Cómo puede formalizarse matemáticamente el problema de inferencia de regímenes financieros mediante la tupla matricial λ = (S, V, A, B, π) y resolverse de forma numéricamente estable?</li>
+        <li><strong>P2:</strong> ¿Cómo impacta la degradación estocástica de los parámetros del modelo (matrices de transición A y emisión B) en la precisión diagnóstica y en los intervalos de confianza del modelo?</li>
+        <li><strong>P3:</strong> ¿En qué medida un HMM con decodificación de Viterbi es más robusto y reproducible frente a un baseline heurístico de ventana deslizante en diferentes escenarios de perturbación?</li>
+    </ul>
+
+    <h2>2. Resultados de la Simulación y Evidencia Gráfica</h2>
+
+    <div class="figure-box">
+        <img src="../corrida_individual.png" alt="Figura 3 - Corrida Individual">
+        <div class="figure-caption">Figura 3. Corrida representativa del proceso estocástico HMM con fondo coloreado por régimen latente: Alcista (verde), Lateral (ámbar) y Bajista (rojo).</div>
+    </div>
+
+    <div class="figure-box">
+        <img src="../precision_global_ventana.png" alt="Figura 1 - Precisión Global y Ventana">
+        <div class="figure-caption">Figura 1. A) Densidad de precisión global bajo N=500 corridas Monte Carlo; B) Rendimiento comparativo en la ventana crítica de shock exógeno [t=15 a 25].</div>
+    </div>
+
+    <div class="figure-box">
+        <img src="../precision_paso_a_paso.png" alt="Figura 2 - Dinámica Paso a Paso">
+        <div class="figure-caption">Figura 2. Dinámica temporal de precisión período a período evidenciando la degradación y recuperación adaptativa frente a la línea base heurística.</div>
+    </div>
+
+    <h2>3. Tablas de Inferencia Estadística (N=500 Corridas Pareadas)</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Métrica / Escenario</th>
+                <th>Media</th>
+                <th>Desv. Est.</th>
+                <th>IC 95% Inferior</th>
+                <th>IC 95% Superior</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Viterbi Nominal (Estacionario)</td>
+                <td><strong>59.56%</strong></td>
+                <td>8.37%</td>
+                <td>58.83%</td>
+                <td>60.30%</td>
+            </tr>
+            <tr>
+                <td>Heurística Baseline (k=2)</td>
+                <td>46.12%</td>
+                <td>7.91%</td>
+                <td>45.43%</td>
+                <td>46.81%</td>
+            </tr>
+            <tr>
+                <td>Viterbi Crisis Ciego</td>
+                <td>61.20%</td>
+                <td>8.60%</td>
+                <td>60.44%</td>
+                <td>61.96%</td>
+            </tr>
+            <tr>
+                <td>Viterbi Crisis Adaptativo</td>
+                <td>61.44%</td>
+                <td>8.58%</td>
+                <td>60.68%</td>
+                <td>62.19%</td>
+            </tr>
+            <tr>
+                <td>Ventana Crítica Ciego</td>
+                <td>67.64%</td>
+                <td>18.80%</td>
+                <td>65.98%</td>
+                <td>69.29%</td>
+            </tr>
+            <tr>
+                <td>Ventana Crítica Adaptativo</td>
+                <td><strong>70.42%</strong></td>
+                <td>17.66%</td>
+                <td>68.87%</td>
+                <td>71.97%</td>
+            </tr>
+            <tr>
+                <td>Ventana Crítica Heurística</td>
+                <td>52.30%</td>
+                <td>15.42%</td>
+                <td>50.95%</td>
+                <td>53.65%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. Referencias Académicas Primarias Verificadas</h2>
+    <ol class="ref-list">
+        <li>L. R. Rabiner, "A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition," <em>Proceedings of the IEEE</em>, vol. 77, no. 2, pp. 257–286, 1989.</li>
+        <li>J. D. Hamilton, "A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle," <em>Econometrica</em>, vol. 57, no. 2, pp. 357–384, 1989.</li>
+        <li>L. E. Baum and T. Petrie, "Statistical Inference for Probabilistic Functions of Finite State Markov Chains," <em>Ann. Math. Statist.</em>, vol. 37, no. 6, pp. 1554–1563, 1966.</li>
+        <li>A. J. Viterbi, "Error Bounds for Convolutional Codes and an Asymptotically Optimum Decoding Algorithm," <em>IEEE Trans. Inf. Theory</em>, vol. 13, no. 2, pp. 260–269, 1967.</li>
+        <li>A. P. Dempster, N. M. Laird, and D. B. Rubin, "Maximum Likelihood from Incomplete Data via the EM Algorithm," <em>J. R. Stat. Soc. B</em>, vol. 39, no. 1, pp. 1–38, 1977.</li>
+        <li>J. D. Hamilton, <em>Time Series Analysis</em>. Princeton: Princeton University Press, 1994.</li>
+        <li>A. Ang and G. Bekaert, "Regime Switches in Interest Rates," <em>Journal of Business & Economic Statistics</em>, vol. 20, no. 2, pp. 163–182, 2002.</li>
+        <li>T. Rydén, T. Teräsvirta, and S. Åsbrink, "Stylized Facts of Daily Return Series and the Hidden Markov Model," <em>Journal of Applied Econometrics</em>, vol. 13, no. 3, pp. 217–244, 1998.</li>
+        <li>M. Guidolin and A. Timmermann, "Asset Allocation under Multivariate Regime Switching," <em>Journal of Economic Dynamics and Control</em>, vol. 31, no. 11, pp. 3503–3544, 2007.</li>
+        <li>P. Glasserman, <em>Monte Carlo Methods in Financial Engineering</em>. New York: Springer, 2003.</li>
+        <li>R. Cont, "Empirical Properties of Asset Returns: Stylized Facts and Statistical Issues," <em>Quantitative Finance</em>, vol. 1, no. 2, pp. 223–236, 2001.</li>
+    </ol>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estructuración Formal y Evaluación Estadístico-Experimental de Modelos Ocultos de Markov</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 18mm 15mm 18mm 15mm;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 10pt;
+            line-height: 1.25;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            text-align: justify;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        .title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 12px;
+            line-height: 1.25;
+        }
+        .authors {
+            font-size: 10pt;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .affiliations {
+            font-size: 8.5pt;
+            font-style: italic;
+            color: #222;
+            line-height: 1.3;
+        }
+        .emails {
+            font-size: 8pt;
+            font-family: "Courier New", Courier, monospace;
+            margin-top: 4px;
+        }
+        .two-columns {
+            column-count: 2;
+            column-gap: 7mm;
+            column-rule: 0.2pt solid #ddd;
+        }
+        .abstract-box {
+            font-size: 8.5pt;
+            font-weight: normal;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        .abstract-title {
+            font-weight: bold;
+            font-style: italic;
+        }
+        .keywords {
+            font-size: 8.5pt;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+        h2 {
+            font-size: 10.5pt;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 0.5pt solid #000;
+            padding-bottom: 2px;
+            margin-top: 14px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        h3 {
+            font-size: 9.5pt;
+            font-style: italic;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+        p {
+            text-indent: 14px;
+            margin: 0 0 6px 0;
+        }
+        ul, ol {
+            margin: 4px 0 8px 16px;
+            padding: 0;
+            font-size: 9pt;
+        }
+        li {
+            margin-bottom: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 7.5pt;
+            margin: 10px 0;
+            break-inside: avoid;
+        }
+        th, td {
+            border: 0.5pt solid #444;
+            padding: 4px 5px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .table-caption {
+            font-size: 8pt;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        .figure {
+            width: 100%;
+            margin: 10px 0;
+            text-align: center;
+            break-inside: avoid;
+        }
+        .figure img {
+            width: 100%;
+            height: auto;
+            border: 0.5pt solid #ccc;
+        }
+        .caption {
+            font-size: 7.5pt;
+            font-style: italic;
+            margin-top: 4px;
+            text-align: justify;
+        }
+        .references {
+            font-size: 7.5pt;
+            line-height: 1.2;
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+        .references li {
+            margin-bottom: 4px;
+        }
+        .formula {
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+            margin: 6px 0;
+            font-size: 9pt;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="title">Estructuración Formal y Evaluación Estadístico-Experimental de Modelos Ocultos de Markov ante Perturbaciones No Estacionarias: Análisis de Regímenes de Mercado Financiero</div>
+    <div class="authors">Sebastian Garces Cadavid<sup>1</sup>, Sofia Miranda Cubides<sup>1</sup>, Oscar Rene Peñaloza Ardila<sup>1</sup>, Andres Mauricio Quintero Rios<sup>1</sup>, Dr. Julián Andrés Loaiza López<sup>2,*</sup></div>
+    <div class="affiliations">
+        <sup>1</sup>Estudiantes de Ingeniería de Software y Datos, Curso de Simulación<br>
+        <sup>2</sup>Docente Asesor, Departamento de Ingeniería de Software y Datos, Institución Universitaria Digital de Antioquia (IU Digital)<br>
+        Medellín, Colombia — Noviembre de 2026
+    </div>
+    <div class="emails">
+        sebastian.garcesc@est.iudigital.edu.co | sofia.miranda@est.iudigital.edu.co | oscar.penaloza@est.iudigital.edu.co | andres.quinteror@est.iudigital.edu.co | julian.loaiza@prof.iudigital.edu.co
+    </div>
+</div>
+
+<div class="two-columns">
+
+    <div class="abstract-box">
+        <span class="abstract-title">Resumen—</span>El modelado estocástico mediante Modelos Ocultos de Markov (HMM) constituye un pilar fundamental en el análisis de sistemas con dinámica latente y observaciones ruidosas. En mercados financieros, perturbaciones exógenas como crisis económicas o cambios de política monetaria vulneran el supuesto estándar de homogeneidad temporal en las transiciones de estado. Este trabajo presenta un estudio estadístico-experimental estructurado bajo el estándar editorial Q1 que evalúa formalmente el impacto de la no estacionariedad en el rendimiento del algoritmo de Viterbi. Mediante una topología de <i>N=3</i> estados latentes (Mercado Alcista, Lateral, Bajista) y <i>M=3</i> emisiones discretas de retorno (Positivo, Neutral, Negativo), se diseñó un experimento Monte Carlo de 500 corridas pareadas (<i>T=50</i> períodos de trading) comparando tres escenarios: Nominal (<i>A</i><sub>nominal</sub> estacionaria), Crisis no modelada (<i>A</i><sub>crisis</sub> en ventana crítica <i>t</i> ∈ [15, 25] con decodificador ciego) y Crisis modelada (<i>A(t)</i> adaptativa). Los resultados confirman que omitir la perturbación degrada la precisión diagnóstica en la ventana crítica, donde la formulación adaptativa alcanza un 70.42% frente al 67.64% del decodificador ciego (<i>p</i> &lt; 10<sup>-8</sup>), superando significativamente al clasificador heurístico determinista de ventana deslizante (52.30%, <i>p</i> &lt; 10<sup>-15</sup>).
+        <div class="keywords"><i>Palabras clave—</i>Modelos Ocultos de Markov, algoritmo de Viterbi, regímenes financieros, no estacionariedad, simulación Monte Carlo, cambio de régimen.</div>
+    </div>
+
+    <h2>I. Introducción</h2>
+    <p>Los mercados bursátiles operan como sistemas adaptativos complejos caracterizados por oscilaciones estocásticas entre fases expansivas, períodos de consolidación y crisis de liquidación severas [1, 9]. La detección temprana de estos regímenes latentes resulta crítica en la optimización de portafolios de inversión, coberturas dinámicas y mitigación prudencial del riesgo financiero [7, 10].</p>
+    <p>Los Modelos Ocultos de Markov (HMM), formalizados matemáticamente por Baum y Petrie [3] y ampliamente documentados en el tutorial clásico de Rabiner [1], ofrecen un marco riguroso para desacoplar estados no observables {<i>S<sub>t</sub></i>} a partir de realizaciones observables ruidosas {<i>O<sub>t</sub></i>}. Hamilton [2, 6] demostró que los retornos financieros pueden formularse a través de cadenas markovianas con cambio de régimen, capturando los hechos estilizados descritos por Cont [11] y Rydén et al. [8].</p>
+    <p>No obstante, los modelos tradicionales asumen estacionariedad temporal en la matriz de transición <i>A</i>. En presencia de choques macroeconómicos exógenos, dicho supuesto se quebranta, comprometiendo la fidelidad diagnóstica del algoritmo de Viterbi [4].</p>
+
+    <h2>II. Preguntas de Investigación</h2>
+    <p>Alineado con el rigor metodológico del curso de Simulación, este estudio aborda las siguientes interrogantes formales:</p>
+    <ul>
+        <li><b>P1:</b> ¿Cómo formalizar matemáticamente la inferencia de regímenes financieros mediante la tupla matricial λ = (<i>S, V, A, B, π</i>) garantizando estabilidad numérica frente a desbordamiento?</li>
+        <li><b>P2:</b> ¿Cómo impacta la degradación estocástica de los parámetros de transición (<i>A</i>) provocada por una crisis temporal en la precisión y en los intervalos de confianza del modelo?</li>
+        <li><b>P3:</b> ¿En qué medida un HMM con decodificación de Viterbi es superior y más robusto frente a un baseline heurístico determinista de ventana deslizante (<i>k=2</i>)?</li>
+    </ul>
+
+    <h2>III. Aportes Principales</h2>
+    <ol>
+        <li><b>Formalización y Estabilidad Numérica:</b> Implementación de la recursión de Viterbi estrictamente en espacio de log-probabilidades para evitar el subdesbordamiento aritmético (<i>underflow</i>):
+        <div class="formula">δ<sub>t</sub>(j) = max<sub>i</sub> [δ<sub>t-1</sub>(i) + ln a<sub>ij</sub>] + ln b<sub>j</sub>(O<sub>t</sub>)</div></li>
+        <li><b>Evaluación Comparativa Justa:</b> Modelado e inclusión de un clasificador reactivo por ventana de latencia (<i>k=2</i>) como línea base de contraste.</li>
+        <li><b>Inferencia Estadística Rigurosa:</b> Protocolo Monte Carlo pareado de 500 corridas con semilla global fija (<code>seed = 42</code>), reportando intervalos de confianza al 95% (<i>IC</i><sub>95%</sub>) y pruebas <i>t</i> pareadas con tamaño de efecto (<i>d</i> de Cohen).</li>
+    </ol>
+
+    <h2>IV. Metodología y Parámetros</h2>
+    <p>Se estructuró un HMM discreto con <i>N=3</i> estados latentes <i>S</i> = {<i>S</i><sub>1</sub>: Alcista, <i>S</i><sub>2</sub>: Lateral, <i>S</i><sub>3</sub>: Bajista} y <i>M=3</i> emisiones <i>V</i> = {<i>v</i><sub>1</sub>: Positivo, <i>v</i><sub>2</sub>: Neutral, <i>v</i><sub>3</sub>: Negativo}. El horizonte temporal se fijó en <i>T=50</i> períodos discretos.</p>
+    <p>La matriz de transición nominal <i>A</i><sub>nominal</sub> y de emisión <i>B</i> se definieron como:</p>
+    <div class="formula">
+        A = [[0.60, 0.30, 0.10], [0.30, 0.40, 0.30], [0.10, 0.30, 0.60]]<br>
+        B = [[0.70, 0.20, 0.10], [0.30, 0.40, 0.30], [0.10, 0.20, 0.70]]
+    </div>
+    <p>Para modelar la crisis no estacionaria en <i>t</i> ∈ [15, 25], se aplicó la matriz perturbada <i>A</i><sub>crisis</sub> con fuerte absorción al estado bajista (<i>a</i><sub>33</sub> = 0.80, <i>a</i><sub>13</sub> = 0.50, <i>a</i><sub>23</sub> = 0.60).</p>
+
+    <div class="figure">
+        <img src="../corrida_individual.png" alt="Figura 3">
+        <div class="caption"><b>Figura 1.</b> Corrida individual representativa (seed=42): Serie de precios simulada y fondo coloreado por régimen de mercado latente (Alcista: verde, Lateral: ámbar, Bajista: rojo).</div>
+    </div>
+
+    <h2>V. Resultados Experimentales</h2>
+    <p>La evaluación sobre las 500 corridas pareadas arrojó los estadísticos consignados en la Tabla I y las pruebas de hipótesis en la Tabla II.</p>
+
+    <div class="table-caption">TABLA I<br>ESTADÍSTICOS DESCRIPTIVOS E INTERVALOS DE CONFIANZA AL 95% (N=500 CORRIDAS)</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Métrica / Escenario</th>
+                <th>Media</th>
+                <th>Desv.</th>
+                <th>IC 95% Inf.</th>
+                <th>IC 95% Sup.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Viterbi Nominal</td><td><b>59.56%</b></td><td>8.37%</td><td>58.83%</td><td>60.30%</td></tr>
+            <tr><td>Heurística Baseline (k=2)</td><td>46.12%</td><td>7.91%</td><td>45.43%</td><td>46.81%</td></tr>
+            <tr><td>Viterbi Crisis Ciego</td><td>61.20%</td><td>8.60%</td><td>60.44%</td><td>61.96%</td></tr>
+            <tr><td>Viterbi Crisis Adaptativo</td><td><b>61.44%</b></td><td>8.58%</td><td>60.68%</td><td>62.19%</td></tr>
+            <tr><td>Ventana Crítica Ciego</td><td>67.64%</td><td>18.80%</td><td>65.98%</td><td>69.29%</td></tr>
+            <tr><td>Ventana Crítica Adaptativo</td><td><b>70.42%</b></td><td>17.66%</td><td>68.87%</td><td>71.97%</td></tr>
+            <tr><td>Ventana Crítica Heurística</td><td>52.30%</td><td>15.42%</td><td>50.95%</td><td>53.65%</td></tr>
+        </tbody>
+    </table>
+
+    <div class="table-caption">TABLA II<br>PRUEBAS T PAREADAS Y TAMAÑO DEL EFECTO (d DE COHEN)</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Comparación Pareada</th>
+                <th>Δ Medias</th>
+                <th>Estadístico t</th>
+                <th>p-valor</th>
+                <th>d Cohen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Nominal: Viterbi vs Heurística</td><td>+13.44%</td><td>+32.18</td><td>&lt; 10<sup>-15</sup></td><td>+1.440</td></tr>
+            <tr><td>Nominal vs Crisis Ciego</td><td>-1.64%</td><td>-7.38</td><td>&lt; 10<sup>-12</sup></td><td>-0.330</td></tr>
+            <tr><td>Crisis Ciego vs Adaptativo</td><td>-0.24%</td><td>-1.12</td><td>0.261</td><td>-0.050</td></tr>
+            <tr><td>Ventana: Ciego vs Adaptativo</td><td>-2.78%</td><td>-5.75</td><td>&lt; 10<sup>-8</sup></td><td>-0.257</td></tr>
+            <tr><td>Ventana: Adaptativo vs Heurística</td><td>+18.12%</td><td>+23.44</td><td>&lt; 10<sup>-15</sup></td><td>+1.048</td></tr>
+        </tbody>
+    </table>
+
+    <div class="figure">
+        <img src="../precision_global_ventana.png" alt="Figura 1">
+        <div class="caption"><b>Figura 2.</b> A) Función de densidad de precisión global en N=500 simulaciones; B) Boxplot de rendimiento diagnóstico en la ventana crítica de shock exógeno [t=15 a 25].</div>
+    </div>
+
+    <div class="figure">
+        <img src="../precision_paso_a_paso.png" alt="Figura 2">
+        <div class="caption"><b>Figura 3.</b> Precisión media período a período demostrando la degradación bajo shock y la resiliencia del decodificador adaptativo.</div>
+    </div>
+
+    <h2>VI. Discusión y Gestión de Riesgo</h2>
+    <p>Los hallazgos confirman la superioridad estadística de Viterbi frente al clasificador reactivo ingenuo, con una ganancia de +13.44 pp en condiciones nominales y +18.12 pp bajo crisis (<i>p</i> &lt; 10<sup>-15</sup>, <i>d</i> = 1.05). En la ventana crítica de shock, la formulación adaptativa aportó una recuperación de +2.78 pp (<i>p</i> &lt; 10<sup>-8</sup>).</p>
+    <p>El análisis de riesgo financiero sobre la corrida representativa reveló una asimetría marcada: el régimen alcista generó un retorno promedio de +2.14% con baja volatilidad (1.10%), mientras que el bajista produjo caídas promedio de -2.41% con volatilidad elevada (1.17%), arrojando un Sharpe Ratio de 0.304 y un Max Drawdown de -12.58%.</p>
+
+    <h2>VII. Conclusiones</h2>
+    <p>Este trabajo demostró formal y experimentalmente la viabilidad de los HMM con Viterbi en log-probabilidades para inferir regímenes financieros ante perturbaciones no estacionarias. El enfoque estocástico superó sólidamente a las heurísticas de mercado y la adaptación paramétrica probó ser efectiva para mitigar pérdidas diagnósticas durante choques exógenos severos.</p>
+
+    <h2>Referencias</h2>
+    <ol class="references">
+        <li>L. R. Rabiner, "A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition," <i>Proc. IEEE</i>, vol. 77, no. 2, pp. 257–286, 1989.</li>
+        <li>J. D. Hamilton, "A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle," <i>Econometrica</i>, vol. 57, no. 2, pp. 357–384, 1989.</li>
+        <li>L. E. Baum and T. Petrie, "Statistical Inference for Probabilistic Functions of Finite State Markov Chains," <i>Ann. Math. Statist.</i>, vol. 37, no. 6, pp. 1554–1563, 1966.</li>
+        <li>A. J. Viterbi, "Error Bounds for Convolutional Codes and an Asymptotically Optimum Decoding Algorithm," <i>IEEE Trans. Inf. Theory</i>, vol. 13, no. 2, pp. 260–269, 1967.</li>
+        <li>A. P. Dempster, N. M. Laird, and D. B. Rubin, "Maximum Likelihood from Incomplete Data via the EM Algorithm," <i>J. R. Stat. Soc. B</i>, vol. 39, no. 1, pp. 1–38, 1977.</li>
+        <li>J. D. Hamilton, <i>Time Series Analysis</i>. Princeton University Press, 1994.</li>
+        <li>A. Ang and G. Bekaert, "Regime Switches in Interest Rates," <i>J. Bus. Econ. Stat.</i>, vol. 20, no. 2, pp. 163–182, 2002.</li>
+        <li>T. Rydén, T. Teräsvirta, and S. Åsbrink, "Stylized Facts of Daily Return Series and the Hidden Markov Model," <i>J. Appl. Econom.</i>, vol. 13, no. 3, pp. 217–244, 1998.</li>
+        <li>M. Guidolin and A. Timmermann, "Asset Allocation under Multivariate Regime Switching," <i>J. Econ. Dyn. Control</i>, vol. 31, no. 11, pp. 3503–3544, 2007.</li>
+        <li>P. Glasserman, <i>Monte Carlo Methods in Financial Engineering</i>. Springer, 2003.</li>
+        <li>R. Cont, "Empirical Properties of Asset Returns: Stylized Facts and Statistical Issues," <i>Quant. Finance</i>, vol. 1, no. 2, pp. 223–236, 2001.</li>
+    </ol>
+
+</div>
+
+</body>
+</html>
+
